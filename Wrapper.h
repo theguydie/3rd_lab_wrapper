@@ -12,7 +12,7 @@ class Wrapper {
 public:
 	using Mtype = int(T::*)(Args...);
 
-	Wrapper(T* t, Mtype* _method, const std::initializer_list<std::pair<std::string, int>>& args) : classWrap(t), method(_method) {
+	Wrapper(T* t, Mtype _method, const std::initializer_list<std::pair<std::string, int>>& args) : classWrap(t), method(_method) {
 		for (auto const& v : args) { argNames.push_back(v.first); }
 	};
 	int executeWrapped(const std::unordered_map<std::string, int>& args) {
